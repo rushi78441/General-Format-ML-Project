@@ -66,3 +66,25 @@ def evaluate_models(X_train, y_train, X_test, y_test, models):
             logging.error(f"Error evaluating {model}: {e}")
     
     return report
+
+def load_object(file_path):
+    """
+    Load an object from a file using pickle.
+    
+    Parameters:
+    - file_path (str): The path from which the object will be loaded.
+    
+    Returns:
+    - The loaded object.
+    
+    Raises:
+    - CustomException: If there is an error during loading the object.
+    """
+    try:
+        with open(file_path, 'rb') as fileobj:
+            return dill.load(fileobj)
+        
+        logging.info(f"Object loaded successfully from {file_path}")
+            
+    except Exception as e:
+        raise CustomException(f"Error loading object: {e}") from e
