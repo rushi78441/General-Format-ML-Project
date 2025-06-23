@@ -52,7 +52,7 @@ class CustomException(Exception):
 
 
 ## for checking Exception handling and logging working or not 
-from logger import logging 
+from src.logger import logging 
 
 if __name__ == "__main__":
     try: 
