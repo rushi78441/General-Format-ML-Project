@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split 
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation 
+from src.components.model_trainer import ModelTrainer
 
 ## We make our class DataIngestionConfig to define the configuration for our data ingestion. 
 
@@ -61,4 +62,7 @@ if __name__ == "__main__":
     obj.initiate_data_ingestion()  ## call the initiate_data_ingestion method to start the data ingestion process
 
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_path=obj.ingestion_config.train_data_path , test_path=obj.ingestion_config.test_data_path)  ## call the initiate_data_transformation
+    train_arr,test_arr,preprocessor_obj =  data_transformation.initiate_data_transformation(train_path=obj.ingestion_config.train_data_path , test_path=obj.ingestion_config.test_data_path)  ## call the initiate_data_transformation
+
+    model_trainer = ModelTrainer()
+    print(model_trainer.initialize_model_trainer(train_data=train_arr, test_data=test_arr, preprocessor_obj=preprocessor_obj))  ## call the initialize_model_trainer method to start the model training process
