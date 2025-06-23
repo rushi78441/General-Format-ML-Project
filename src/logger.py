@@ -62,4 +62,3 @@ Explanation of the logging format:
 
 # Example usage (you can add this at the bottom to test):
 # logging.info("Logger is set up and ready to use.")
-

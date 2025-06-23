@@ -49,3 +49,14 @@ class CustomException(Exception):
         It ensures that when the exception is printed, the custom error message is shown.
         """
         return self.error_message
+
+
+## for checking Exception handling and logging working or not 
+from src.logger import logging 
+
+if __name__ == "__main__":
+    try: 
+        a=1/0
+    except Exception as e: 
+        logging.info("Divide by zero error")
+        raise CustomException(e, sys)
