@@ -50,8 +50,8 @@ class DataTransformation:
             categorical_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='most_frequent')),
-                    ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore')),
-                    ('scaler', StandardScaler())  
+                    ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore',sparse_output=False)),  ## handle_unknown='ignore' will ignore any unknown categories during transformation
+                    ('scaler', StandardScaler(with_mean=False))  ## with_mean=False is used because OneHotEncoder will create a sparse matrix and we don't want to center the data
                 ]
             )
 
