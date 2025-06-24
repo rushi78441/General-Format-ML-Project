@@ -1,5 +1,5 @@
 import pickle 
-from flask import Flask, request , render_template
+from flask import Flask, request , render_template, redirect
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler  
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return redirect('/predict')
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():

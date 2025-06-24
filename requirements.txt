@@ -7,5 +7,7 @@ catboost
 xgboost
 dill
 flask
+tailwindcss
+flask-cors
 
-#-e .    ## map to setup.py
+-e .    ## map to setup.py
